@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="head.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: black;
+        }
+
+        
+        .main {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+        }
+
+        .system {
+            width: 300px;
+            position: absolute;
+            top: 150px;
+            left: 590px;
+        }
+
+        .system h1 {
+            color: rgb(255, 255, 255);
+            position: absolute;
+            top: -5px;
+            left: -480px;
+            font-size: 40px;
+        }
+
+        .system .inputbox {
+            position: relative;
+        }
+
+        .system .inputbox input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            color: rgb(255, 255, 255);
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            border: none;
+            border-bottom: 1px solid rgb(255, 255, 255);
+            background: transparent;
+            outline: none;
+        }
+
+        .system .inputbox label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            letter-spacing: 1px;
+            padding: 10px 0;
+            font-size: 16px;
+            color: rgb(255, 255, 255);
+            transition: 0.5s;
+        }
+
+        .system .inputbox input:focus~label,
+        .system .inputbox input:valid~label {
+            top: -20px;
+            left: 0%;
+            color: rgb(0, 21, 211);
+            font-size: 12px;
+        }
+
+        .btn {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: rgb(0, 0, 0);
+            background: cyan;
+            padding: 8px 16px;
+            border-radius: 5px;
+            position: absolute;
+            top: 310px;
+            font-weight: bolder;
+
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 5px cyan, 0 0 40px cyan, 0 0 320px cyan, 0 0 50px cyan, 0 0 10px cyan;
+        }
+
+        .text textarea {
+            font-size: 15px;
+            width: 300px;
+            height: 100px;
+            margin-top: 30px;
+            position: absolute;
+            top: 170px;
+            background-color: rgb(103, 103, 116);
+
+        }
+
+        .text ::placeholder {
+            font-size: 20px;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .Rst {
+            font-weight: bolder;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: rgb(0, 0, 0);
+            background: cyan;
+            padding: 8px 16px;
+            border-radius: 5px;
+            position: absolute;
+            top: 310px;
+            left: 100px;
+        }
+
+        .Rst:hover {
+            box-shadow: 0 0 5px cyan, 0 0 40px cyan, 0 0 320px cyan, 0 0 50px cyan, 0 0 10px cyan;
+        }
+
+        .wrapper {
+    display: inline-flex;
+    list-style: none;
+    height: 120px;
+    width: 100%;
+    padding-top: 40px;
+    font-family: "Poppins", sans-serif;
+    justify-content: center;
+    position: absolute;
+    right: 288px;
+    top: 300px;
+}
+.wrapper .icon {
+    position: relative;
+    background: #fff;
+    border-radius: 50%;
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.wrapper .tooltip {
+    position: absolute;
+    top: 0;
+    font-size: 14px;
+    background: #fff;
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.wrapper .icon:hover .tooltip {
+    top: -45px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+.wrapper .facebook:hover,
+.wrapper .facebook:hover .tooltip,
+.wrapper .facebook:hover .tooltip::before {
+    background: #1877f2;
+    color: #fff;
+}
+.wrapper .twitter:hover,
+.wrapper .twitter:hover .tooltip,
+.wrapper .twitter:hover .tooltip::before {
+    background: #1da1f2;
+    color: #fff;
+}
+.wrapper .instagram:hover,
+.wrapper .instagram:hover .tooltip,
+.wrapper .instagram:hover .tooltip::before {
+    background: #e4405f;
+    color: #fff;
+}
+
+       
+
+        .conta a {
+            display: flex;
+            text-decoration: none;
+            color: white;
+            padding: 5px;
+            position: absolute;
+            top: 270px;
+            left: 110px;
+            font-size: 20px;
+        }
+
+        .conta .starts {
+            margin-top: -30px;
+        }
+
+        .button {
+            all: unset;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 0.5em 1em;
+            border: mediumspringgreen solid 0.15em;
+            border-radius: 0.25em;
+            color: mediumspringgreen;
+            font-size: 1.5em;
+            font-weight: 600;
+            cursor: pointer;
+            overflow: hidden;
+            transition: border 300ms, color 300ms;
+            user-select: none;
+            top: -220px;
+            left: 115px;
+        }
+
+        .button a {
+            text-decoration: none;
+            z-index: 1;
+        }
+
+        .button:hover {
+            color: #212121;
+        }
+
+        .button:active {
+            border-color: teal;
+        }
+
+        .button::after,
+        .button::before {
+            content: "";
+            position: absolute;
+            width: 9em;
+            aspect-ratio: 1;
+            background: mediumspringgreen;
+            opacity: 50%;
+            border-radius: 50%;
+            transition: transform 500ms, background 300ms;
+        }
+
+        .button::before {
+            left: 0;
+            transform: translateX(-8em);
+        }
+
+        .button::after {
+            right: 0;
+            transform: translateX(8em);
+        }
+
+        .button:hover:before {
+            transform: translateX(-1em);
+        }
+
+        .button:hover:after {
+            transform: translateX(1em);
+        }
+
+        .button:active:before,
+        .button:active:after {
+            background: teal;
+        }
+
+
+
+
+        *{
+    padding:0 ;
+
+    margin: 0;
+    box-sizing: border-box;
+
+  }
+footer{
+  position:relative;
+  top:-2rem;
+  background: #0b0b0b;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
+
+
+footer::before{
+content: '';
+position: absolute;
+left: 0;
+top: 100px;
+height: 1px;
+width: 100%;
+background: #AFAFB6;
+}
+
+
+footer .content{
+max-width: 1250px;
+margin: auto;
+padding: 30px 40px 40px 40px;
+}
+
+
+footer .content .top{
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 50px;
+}
+.content .top .logo-details{
+color: #fff;
+font-size: 30px;
+}
+.content .top .media-icons{
+display: flex;
+position: relative;
+top: 13rem;
+}
+.content .top .media-icons a{
+height: 40px;
+width: 40px;
+margin: 0 17px;
+border-radius: 50%;
+text-align: center;
+line-height: 40px;
+color: #fff;
+font-size: 17px;
+text-decoration: none;
+transition: all 0.4s ease;
+}
+.top .media-icons a:nth-child(1){
+background: #4267B2;
+}
+.top .media-icons a:nth-child(1):hover{
+color: #4267B2;
+background: #fff;
+}
+.top .media-icons a:nth-child(2){
+background: #1DA1F2;
+}
+.top .media-icons a:nth-child(2):hover{
+color: #1DA1F2;
+background: #fff;
+}
+.top .media-icons a:nth-child(3){
+background: #E1306C;
+}
+.top .media-icons a:nth-child(3):hover{
+color: #E1306C;
+background: #fff;
+}
+.top .media-icons a:nth-child(4){
+background: #0077B5;
+}
+.top .media-icons a:nth-child(4):hover{
+color: #0077B5;
+background: #fff;
+}
+.top .media-icons a:nth-child(5){
+background: #FF0000;
+}
+.top .media-icons a:nth-child(5):hover{
+color: #FF0000;
+background: #fff;
+}
+footer .content .link-boxes{
+width: 100%;
+display: flex;
+justify-content: space-between;
+}
+footer .content .link-boxes .box{
+width: calc(100% / 5 - 10px);
+}
+.content .link-boxes .box .link_name{
+color: #fff;
+font-size: 18px;
+font-weight: 400;
+margin-bottom: 10px;
+position: relative;
+}
+.link-boxes .box .link_name::before{
+content: '';
+position: absolute;
+left: 0;
+bottom: -2px;
+height: 2px;
+width: 35px;
+background: #fff;
+}
+.content .link-boxes .box li{
+margin: 6px 0;
+list-style: none;
+}
+.content .link-boxes .box li a{
+color: #fff;
+font-size: 14px;
+font-weight: 400;
+text-decoration: none;
+opacity: 0.8;
+transition: all 0.4s ease
+}
+.content .link-boxes .box li a:hover{
+opacity: 1;
+text-decoration: underline;
+}
+.content .link-boxes .input-box{
+margin-right: 55px;
+}
+.link-boxes .input-box input{
+height: 40px;
+width: calc(100% + 55px);
+outline: none;
+border: 2px solid #AFAFB6;
+background: #000000;
+border-radius: 4px;
+padding: 0 15px;
+font-size: 15px;
+color: #fbf4f4;
+margin-top: 5px;
+}
+.link-boxes .input-box input::placeholder{
+color: #AFAFB6;
+font-size: 16px;
+}
+.link-boxes .input-box input[type="button"]{
+background: #fff;
+color: #b91313;
+border: none;
+font-size: 18px;
+font-weight: 500;
+margin: 4px 0;
+opacity: 0.8;
+cursor: pointer;
+transition: all 0.4s ease;
+}
+.input-box input[type="button"]:hover{
+opacity: 1;
+}
+footer .bottom-details{
+width: 100%;
+background: #151515;
+
+}
+footer .bottom-details .bottom_text{
+max-width: 1250px;
+margin: auto;
+padding:20px 45px;
+display: flex;
+justify-content:center;
+}
+.bottom-details .bottom_text span,
+.bottom-details .bottom_text a{
+font-size: 14px;
+font-weight: 300;
+color: #fff;
+opacity: 0.8;
+text-decoration: none;
+}
+.bottom-details .bottom_text a:hover{
+opacity: 1;
+text-decoration: underline;
+}
+.bottom-details .bottom_text a{
+margin-right: 10px;
+}
+@media (max-width: 900px) {
+footer .content .link-boxes{
+  flex-wrap: wrap;
+}
+footer .content .link-boxes .input-box{
+  width: 40%;
+  margin-top: 10px;
+}
+}
+@media (max-width: 700px){
+footer{
+  position: relative;
+}
+.content .top .logo-details{
+  font-size: 26px;
+}
+.content .top .media-icons a{
+  height: 35px;
+  width: 35px;
+  font-size: 14px;
+  line-height: 35px;
+}
+footer .content .link-boxes .box{
+  width: calc(100% / 3 - 10px);
+}
+footer .content .link-boxes .input-box{
+  width: 60%;
+}
+.bottom-details .bottom_text span,
+.bottom-details .bottom_text a{
+  font-size: 12px;
+}
+}
+@media (max-width: 520px){
+footer::before{
+  top: 145px;
+}
+footer .content .top{
+  flex-direction: column;
+}
+.content .top .media-icons{
+  margin-top: 16px;
+}
+footer .content .link-boxes .box{
+  width: calc(100% / 2 - 10px);
+}
+footer .content .link-boxes .input-box{
+  width: 100%;
+}
+}
+    </style>
+</head>
+
+<body>
+   
+  <header id="navbar">
+    <nav class="navbar-container container">
+      <a href="/" class="home-link">
+        <div class="navbar-logo"></div>
+        PORTFOLIO
+      </a>
+      <button type="button" id="navbar-toggle" aria-controls="navbar-menu" aria-label="Toggle menu" aria-expanded="false">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div id="navbar-menu" aria-labelledby="navbar-toggle">
+        <ul class="navbar-links">
+          <li class="navbar-item"><a class="navbar-link" href="http://127.0.0.1:5500/pot.html#">Home</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="http://127.0.0.1:5500/about.html">About</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="http://127.0.0.1:5500/skills.html">Skills</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="http://127.0.0.1:5501/portfolio/project.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+
+    <div class="main">
+        <div class="system" id="Super">
+            <h1>Contact Us</h1>
+            <form action="https://formspree.io/f/mgvwwbpe" method="POST">
+                <div class="inputbox">
+                    <input type="text" name="Full Name" autocomplete="off" required>
+                    <label>Full Name</label>
+                </div>
+                <div class="inputbox">
+                    <input type="text" name="Contact No." autocomplete="off" required>
+                    <label>Contact No.</label>
+                </div>
+                <div class="inputbox">
+                    <input type="text" name="Email Id" autocomplete="off" required>
+                    <label>Email Id</label>
+                </div>
+                <input class="btn" type="submit" value="LOGIN"><br>
+                <input class="Rst" type="reset" value="RESET"><br>
+                <div class="text">
+                    <textarea name="this is empty box" id="" placeholder="Your Message" cols="35" rows="20"></textarea>
+                </div>
+            </form>
+        </div>
+    </div>
+    <ul class="wrapper">
+        <li class="icon facebook">
+            <span class="tooltip">Facebook</span>
+            <svg viewBox="0 0 320 512" height="1.2em" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z">
+                </path>
+            </svg>
+        </li>
+        <li class="icon twitter">
+            <span class="tooltip">Twitter</span>
+            <svg height="1.8em" fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"
+                class="twitter">
+                <path
+                    d="M42,12.429c-1.323,0.586-2.746,0.977-4.247,1.162c1.526-0.906,2.7-2.351,3.251-4.058c-1.428,0.837-3.01,1.452-4.693,1.776C34.967,9.884,33.05,9,30.926,9c-4.08,0-7.387,3.278-7.387,7.32c0,0.572,0.067,1.129,0.193,1.67c-6.138-0.308-11.582-3.226-15.224-7.654c-0.64,1.082-1,2.349-1,3.686c0,2.541,1.301,4.778,3.285,6.096c-1.211-0.037-2.351-0.374-3.349-0.914c0,0.022,0,0.055,0,0.086c0,3.551,2.547,6.508,5.923,7.181c-0.617,0.169-1.269,0.263-1.941,0.263c-0.477,0-0.942-0.054-1.392-0.135c0.94,2.902,3.667,5.023,6.898,5.086c-2.528,1.96-5.712,3.134-9.174,3.134c-0.598,0-1.183-0.034-1.761-0.104C9.268,36.786,13.152,38,17.321,38c13.585,0,21.017-11.156,21.017-20.834c0-0.317-0.01-0.633-0.025-0.945C39.763,15.197,41.013,13.905,42,12.429">
+                </path>
+            </svg>
+        </li>
+        <li class="icon instagram">
+            <span class="tooltip">Instagram</span>
+            <svg xmlns="http://www.w3.org/2000/svg" height="1.2em" fill="currentColor" class="bi bi-instagram"
+                viewBox="0 0 16 16">
+                <path
+                    d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z">
+                </path>
+            </svg>
+        </li>
+    </ul>
+    <div class="conta">
+        <a href="" class="starts">9958181637</a>
+        <a href="">Skshivam9958@gmail.com</a>
+        <!-- <a href="images/Sibbu Resume.pdf" class="Resume">Download Cv</a> -->
+    </div>
+
+    <button class="button">
+        <a href="images/Sibbu Resume.pdf">Download Cv</a>
+    </button>
+
+
+
+    <footer>
+        <div class="content">
+          <div class="top">
+            <div class="logo-details">
+              <!-- <i class="fab fa-slack"></i> -->
+              <span class="logo_name">Logo</span>
+            </div>
+            <div class="media-icons">
+              <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://x.com/home"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.instagram.com/brajesh0__yadav/"><i class="fab fa-instagram"></i></a>
+              <a href="https://web.telegram.org/a/"><i class="fab fa-telegram"></i></a>
+            </div>
+          </div>
+          <div class="link-boxes">
+            <ul class="box">
+              <li class="link_name">Pages</li>
+              <li><a href="http://127.0.0.1:5501/portfolio/portfolio.html#">Home</a></li>
+              <li><a href="http://127.0.0.1:5501/portfolio/skills.html">Skills us</a></li>
+              <li><a href="http://127.0.0.1:5501/portfolio/about1.html">About us</a></li>
+              <li><a href="http://127.0.0.1:5501/portfolio/project.html">Project</a></li>
+              <li><a href="">Contact</a></li>
+            </ul>
+            <ul class="box">
+              <li class="link_name">Services</li>
+              <li><a href="http://127.0.0.1:5501/portfolio/project.html">Web design</a></li>
+            </ul>
+            <ul class="box">
+              <li class="link_name">Account</li>
+              <li><a href="http://127.0.0.1:5501/portfolio/portfolio.html#">Profile</a></li>
+              <li><a href="http://127.0.0.1:5501/portfolio/skills.html">Prefrences</a></li>
+              <!-- <li><a href="#">My account</a></li> -->
+              <!-- <li><a href="#">Purchase</a></li> -->
+            </ul>
+            <ul class="box">
+              <li class="link_name">Skills</li>
+              <li><a href="http://127.0.0.1:5501/portfolio/skills.html">HTML & CSS</a></li>
+              <li><a href="http://127.0.0.1:5501/portfolio/skills.html">JavaScript</a></li>
+              <li><a href="http://127.0.0.1:5501/portfolio/skills.html">React</a></li>
+              <li><a href="http://127.0.0.1:5501/portfolio/skills.html">Bootstrep</a></li>
+            </ul>
+            <ul class="box input-box">
+              <li class="link_name">Social-us</li>
+              <li><input type="text" name="" placeholder="skhivam9958@gmail.com" id=""></li>
+              <!-- <li><input type="button" value="Subscribe"></li> -->
+            </ul>
+          </div>
+        </div>
+        <div class="bottom-details">
+          <div class="bottom_text">
+            <span class="copyright_text">Copyright © 2024 Shivam Kuamr~India</span>
+            <span class="policy_terms">
+            </span>
+          </div>
+        </div>
+      </footer>
+
+      <script src="head.js"></script>
+    
+</body>
+
+</html>

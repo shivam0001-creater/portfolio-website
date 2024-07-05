@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0%;
+            margin: 0%;
+        }
+
+        .main {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+        }
+
+        .box {
+            width: 400px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 50px;
+            background: black;
+            border-radius: 15px;
+        }
+
+        .box h1 {
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            color: white;
+            text-align: center;
+        }
+
+        .box .inputbox {
+            position: relative;
+        }
+
+        .box .inputbox input {
+            width: 100%;
+            padding: 0%;
+            color: white;
+            font-size: 15px;
+            letter-spacing: 1px;
+            background: transparent;
+            outline: none;
+            border: none;
+            margin-bottom: 30px;
+             border-bottom: 1px solid white;
+        }
+
+        .box .inputbox label {
+            position: absolute;
+            top: -10px;
+            left: 0%;
+            font-size: 15px;
+            letter-spacing: 1px;
+            color: white;
+            transition: 0.5s;
+        }
+
+        .box .inputbox input:focus~label,
+        .box .inputbox input:valid~label {
+            top: -20px;
+            left: 0%;
+            color: yellow;
+            font-size: 12px;
+        }
+
+        .btn {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: white;
+            background: purple;
+            padding: 8px 16px;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 10px purple, 0 0 40px purple, 0 0 80px purple, 0 0 120px purple, 0 0 200px purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="box">
+            <h1>Registration form</h1>
+            <form>
+                <div class="inputbox">
+                    <input type="text" name="username" autocomplete="off" required>
+                    <label>username</label>
+                </div>
+                <div class="inputbox">
+                    <input type="password" name="password" autocomplete="off" required>
+                    <label>password</label>
+                </div>
+                <input class="btn" type="submit" value="LOGIN">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

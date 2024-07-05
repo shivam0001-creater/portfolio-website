@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="port.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="head.css">
+
+</head>
+<body>
+
+  <header id="navbar">
+    <nav class="navbar-container container">
+      <a href="/" class="home-link">
+        <div class="navbar-logo"></div>
+        PORTFOLIO
+      </a>
+      <button type="button" id="navbar-toggle" aria-controls="navbar-menu" aria-label="Toggle menu" aria-expanded="false">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div id="navbar-menu" aria-labelledby="navbar-toggle">
+        <ul class="navbar-links">
+          <li class="navbar-item"><a class="navbar-link" href="http://127.0.0.1:5500/pot.html">Home</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="http://127.0.0.1:5500/about.html">About</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="http://127.0.0.1:5500/skills.html">Skills</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="http://127.0.0.1:5500/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+<div class="system">
+    <p>Hi There.</p>
+    <h2>I'm <span>Shivam</span></h2>
+    <h2>Front-end Developer</h2>
+  </div>
+
+
+  <!-- <div class="hire">
+    <a href="">Hire me</a>
+  </div> -->
+  <!-- <div class="contact">
+    <a href="images/Sibbu Resume.pdf">Download CV</a>
+  </div> -->
+  <div class="skills">
+    <span class=" text first-text">My Skill's :- </span>
+    <span class=" text sec-text">JAVASCRIPT</span>
+  </div>
+  <script>
+    const text = document.querySelector(".sec-text");
+
+    const textLoad = () => {
+      setTimeout(() => {
+        text.textContent = "Html 95%";
+      }, 0);
+      setTimeout(() => {
+        text.textContent = "Css 90%";
+      }, 2000);
+      setTimeout(() => {
+        text.textContent = "JavaScript 70%";
+      }, 4000);
+      setTimeout(() => {
+        text.textContent = "ADCA 95%";
+      }, 6000);
+      setTimeout(() => {
+        text.textContent = "Wordpress 95% ";
+      }, 8000);
+      setTimeout(() => {
+        text.textContent = "Creativity 95%";
+      }, 10000);
+    }
+
+    textLoad();
+    setInterval(textLoad, 12000);
+  </script>
+<div class="hire">
+  <button>Hire me</button>
+  </div>
+
+
+  <footer>
+    <div class="content">
+      <div class="top">
+        <div class="logo-details">
+          <!-- <i class="fab fa-slack"></i> -->
+          <span class="logo_name">Logo</span>
+        </div>
+        <div class="media-icons">
+          <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://x.com/home"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/brajesh0__yadav/"><i class="fab fa-instagram"></i></a>
+          <a href="https://web.telegram.org/a/"><i class="fab fa-telegram"></i></a>
+        </div>
+      </div>
+      <div class="link-boxes">
+        <ul class="box">
+          <li class="link_name">Pages</li>
+          <li><a href="http://127.0.0.1:5500/pot.html#">Home</a></li>
+          <li><a href="http://127.0.0.1:5500/about.html">About</a></li>
+          <li><a href="http://127.0.0.1:5500/skills.html">Skills</a></li>
+          <li><a href="http://127.0.0.1:5500/contact.html">Contact</a></li>
+        </ul>
+        <ul class="box">
+          <li class="link_name">Services</li>
+          <li><a href="http://127.0.0.1:5501/portfolio/project.html">Web design</a></li>
+        </ul>
+        <ul class="box">
+          <li class="link_name">Account</li>
+          <li><a href="http://127.0.0.1:5501/portfolio/portfolio.html#">Profile</a></li>
+          <li><a href="http://127.0.0.1:5501/portfolio/skills.html">Prefrences</a></li>
+          <!-- <li><a href="#">My account</a></li> -->
+          <!-- <li><a href="#">Purchase</a></li> -->
+        </ul>
+        <ul class="box">
+          <li class="link_name">Skills</li>
+          <li><a href="http://127.0.0.1:5501/portfolio/skills.html">HTML & CSS</a></li>
+          <li><a href="http://127.0.0.1:5501/portfolio/skills.html">JavaScript</a></li>
+          <li><a href="http://127.0.0.1:5501/portfolio/skills.html">React</a></li>
+          <li><a href="http://127.0.0.1:5501/portfolio/skills.html">Bootstrep</a></li>
+        </ul>
+        <ul class="box input-box">
+          <li class="link_name">Social-us</li>
+          <li><input type="text" name="" placeholder="skhivam9958@gmail.com" id=""></li>
+          <!-- <li><input type="button" value="Subscribe"></li> -->
+        </ul>
+      </div>
+    </div>
+    <div class="bottom-details">
+      <div class="bottom_text">
+        <span class="copyright_text">Copyright © 2024 Shivam Kuamr~India</span>
+        <span class="policy_terms">
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="head.js"></script>
+</body>
+</html>

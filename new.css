@@ -1,0 +1,150 @@
+html{
+    scroll-behavior: smooth;
+}
+
+
+*{        
+        padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(0, 0, 0);
+}
+
+.home ul {
+    display: flex;
+    position: absolute;
+    left: 680px;
+    top: 20px;
+}
+
+.home ul li {
+    list-style: none;
+    transition: all 1s ease-in-out;
+
+}
+
+ul li a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 2px 5px;
+    margin: 5px;
+}
+
+header {
+    position: fixed;
+    z-index: 1;
+    height: 55px;
+    width: 100%;
+    background-color: black;
+    box-shadow: 1px 7px 30px 1px blue;
+}
+
+h1 {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+}
+
+.home ul li a:hover {
+    border-radius: 5px;
+    background-color: rgb(59, 156, 156);
+}
+
+.content {
+    color: white;
+    font-size: 30px;
+    position: absolute;
+    left: 28px;
+    top: 150px;
+    margin: 5px;
+}
+
+.hire a {
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 6px;
+    border: none;
+    font-size: 20px;
+    background-color: rgb(59, 156, 156);
+    color: black;
+    position: absolute;
+    top: 450px;
+    left: 200px;
+    transition: all 0.5s ease-in-out;
+}
+
+.hire a:hover {
+    color: white;
+}
+
+.contact a {
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 6px;
+    border: none;
+    font-size: 20px;
+    background-color: rgb(59, 156, 156);
+    color: black;
+    position: absolute;
+    top: 450px;
+    left: 35px;
+    transition: all 0.5s ease-in-out;
+
+}
+
+.contact a:hover {
+    color: white;
+}
+
+.content span {
+    color: rgb(20, 52, 196);
+}
+
+.text.first-text {
+    font-weight: 100;
+}
+
+.skills {
+    /* color: black; */
+    width: 415px;
+    overflow: hidden;
+    position: relative;
+    left: 35px;
+    top: 315px;
+}
+
+.skills .text {
+    position: relative;
+    color: rgb(10, 66, 250);
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.skills .text.first-text {
+    color: white;
+}
+
+.text.sec-text:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    border-left: 2px solid transparent;
+    animation: animate 3s steps(14) infinite;
+}
+
+@keyframes animate {
+
+    40%,
+    60% {
+        left: calc(100% + 4px);
+    }
+}

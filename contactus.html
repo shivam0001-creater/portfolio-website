@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: black;
+        }
+
+        .main {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+        }
+
+        .box {
+            width: 300px;
+            position: absolute;
+            top: 100px;
+            left: 560px;
+        }
+
+        .box h1 {
+            color: white;
+            position: absolute;
+            top: -5px;
+            left: -480px;
+            font-size: 40px;
+        }
+
+        .box .inputbox {
+            position: relative;
+        }
+
+        .box .inputbox input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            color: rgb(255, 255, 255);
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            border: none;
+            border-bottom: 1px solid white;
+            background: transparent;
+            outline: none;
+        }
+
+        .box .inputbox label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            letter-spacing: 1px;
+            padding: 10px 0;
+            font-size: 16px;
+            color: rgb(255, 255, 255);
+            transition: 0.5s;
+        }
+
+        .box .inputbox input:focus~label,
+        .box .inputbox input:valid~label {
+            top: -20px;
+            left: 0%;
+            color: rgb(0, 21, 211);
+            font-size: 12px;
+        }
+
+        .btn {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: rgb(0, 0, 0);
+            background: cyan;
+            padding: 8px 16px;
+            border-radius: 5px;
+            position: absolute;
+            top: 310px;
+            font-weight: bolder;
+
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 5px cyan, 0 0 40px cyan, 0 0 320px cyan, 0 0 50px cyan, 0 0 10px cyan;
+        }
+
+        .text textarea {
+            font-size: 15px;
+            width: 300px;
+            height: 100px;
+            margin-top: 30px;
+            position: absolute;
+            top: 170px;
+            background-color: rgb(103, 103, 116);
+
+        }
+
+        .text ::placeholder {
+            font-size: 20px;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .Rst {
+            font-weight: bolder;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: rgb(0, 0, 0);
+            background: cyan;
+            padding: 8px 16px;
+            border-radius: 5px;
+            position: absolute;
+            top: 310px;
+            left: 100px;
+        }
+
+        .Rst:hover {
+            box-shadow: 0 0 5px cyan, 0 0 40px cyan, 0 0 320px cyan, 0 0 50px cyan, 0 0 10px cyan;
+        }
+
+        .conta a {
+            display: flex;
+            text-decoration: none;
+            color: white;
+            padding: 5px;
+            position: absolute;
+            top: 200px;
+            left: 80px;
+            font-size: 20px;
+        }
+
+        .conta .starts {
+            margin-top: -30px;
+        }
+
+       
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="box">
+            <h1>Contact Us</h1>
+            <form>
+                <div class="inputbox">
+                    <input type="text" name="Full Name" autocomplete="off" required>
+                    <label>Full Name</label>
+                </div>
+                <div class="inputbox">
+                    <input type="text" name="Contact No." autocomplete="off" required>
+                    <label>Contact No.</label>
+                </div>
+                <div class="inputbox">
+                    <input type="text" name="Email Id" autocomplete="off" required>
+                    <label>Email Id</label>
+                </div>
+                <input class="btn" type="submit" value="LOGIN"><br>
+                <input class="Rst" type="reset" value="RESET"><br>
+                <div class="text">
+                    <textarea name="this is empty box" id="" placeholder="Your Message" cols="35" rows="20"></textarea>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="conta">
+        <a href="" class="starts">9958181637</a>
+        <a href="">Skshivam9958@gmail.com</a>
+    </div>
+    
+</body>
+
+</html>

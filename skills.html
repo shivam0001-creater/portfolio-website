@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="head.css">
+  <style>
+  * {
+  margin: 0;
+  font-family: sans-serif;
+  list-style: none;
+  padding: 0;
+}
+
+body {
+  background: #000000;
+}
+
+.main {
+  width: 80%; /* Adjusted width to 80% of the viewport width */
+  max-width: 700px; /* Added max-width to limit size on larger screens */
+  height: 550px;
+  color: white;
+  border: 2px solid white;
+  position: absolute;
+  top: 75px;
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
+}
+
+.skills {
+  width: 80%; /* Adjusted width to 80% of the viewport width */
+  max-width: 500px; /* Added max-width to limit size on larger screens */
+  margin: 60px auto;
+  color: white;
+  position: absolute;
+  top: 280px;
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
+}
+
+p {
+  height: 120px;
+  width: 80%; /* Adjusted width to 80% of the parent element */
+  max-width: 400px; /* Added max-width to limit size on larger screens */
+  color: white;
+  position: absolute;
+  left: 42%;
+  transform: translateX(-50%); /* Center horizontally */
+  top: 30px;
+}
+
+.skills li {
+  margin: 20px 0;
+}
+
+.bar {
+  background: #0a44c4;
+  display: block;
+  height: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 0 10px #2187e7b3;
+}
+
+.bar span {
+  height: 2px;
+  float: left;
+  background: #2187e7;
+}
+
+/* Keyframes remain unchanged */
+
+/* img { */
+  /* width: 30%; Adjusted width to 30% of the viewport width */
+  /* max-width: 300px; Added max-width to limit size on larger screens */
+  /* z-index: -1; */
+  /* position: absolute; */
+  /* top: 30px; */
+  /* left: 50%; */
+  /* transform: translateX(-50%); Center horizontally */
+  /* opacity: 0.4; */
+/* } */
+
+/* Media queries for responsiveness */
+
+@media screen and (max-width: 768px) {
+  .main, .skills, p, img {
+    width: 90%;
+    max-width: none;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .main, .skills, p, img {
+    width: 95%;
+    max-width: none;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+footer {
+  position: relative;
+  background: #0b0b0b;
+  width: 100%;
+  bottom: -770px;
+  left: 0;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 100px;
+  height: 1px;
+  width: 100%;
+  background: #AFAFB6;
+}
+
+footer .content {
+  max-width: 1250px;
+  margin: auto;
+  padding: 30px 40px 40px 40px;
+}
+
+footer .content .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.content .top .logo-details {
+  color: #fff;
+  font-size: 30px;
+}
+
+.content .top .media-icons {
+  display: flex;
+  position: relative;
+  top: 13rem; /* Adjusted from original for positioning */
+}
+
+.content .top .media-icons a {
+  height: 40px;
+  width: 40px;
+  margin: 0 17px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+  font-size: 17px;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+
+/* Media icons styling remains consistent */
+
+footer .content .link-boxes {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer .content .link-boxes .box {
+  width: calc(100% / 5 - 10px);
+}
+
+.content .link-boxes .box .link_name {
+  position: relative;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.link-boxes .box .link_name::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 2px;
+  width: 35px;
+  background: #fff;
+}
+
+.content .link-boxes .box li {
+  margin: 6px 0;
+  list-style: none;
+}
+
+.content .link-boxes .box li a {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: all 0.4s ease;
+}
+
+.content .link-boxes .box li a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.content .link-boxes .input-box {
+  margin-right: 55px;
+}
+
+.link-boxes .input-box input {
+  height: 40px;
+  width: calc(100% + 55px);
+  outline: none;
+  border: 2px solid #AFAFB6;
+  background: #000000;
+  border-radius: 4px;
+  padding: 0 15px;
+  font-size: 15px;
+  color: #fbf4f4;
+  margin-top: 5px;
+}
+
+.link-boxes .input-box input::placeholder {
+  color: #AFAFB6;
+  font-size: 16px;
+}
+
+.link-boxes .input-box input[type="button"] {
+  background: #fff;
+  color: #b91313;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 4px 0;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.input-box input[type="button"]:hover {
+  opacity: 1;
+}
+@media (max-width: 900px) {
+  footer .content .link-boxes {
+    flex-wrap: wrap;
+  }
+
+  footer .content .link-boxes .input-box {
+    width: 40%;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 700px) {
+  footer {
+    position: relative;
+  }
+
+  .content .top .logo-details {
+    font-size: 26px;
+  }
+
+  .content .top .media-icons a {
+    height: 35px;
+    width: 35px;
+    font-size: 14px;
+    line-height: 35px;
+  }
+
+  footer .content .link-boxes .box {
+    width: calc(100% / 3 - 10px);
+  }
+
+  footer .content .link-boxes .input-box {
+    width: 60%;
+  }
+
+  .bottom-details .bottom_text span,
+  .bottom-details .bottom_text a {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 520px) {
+  footer::before {
+    top: 145px;
+  }
+
+  footer .content .top {
+    flex-direction: column;
+  }
+
+  .content .top .media-icons {
+    margin-top: 16px;
+  }
+
+  footer .content .link-boxes .box {
+    width: calc(100% / 2 - 10px);
+  }
+
+  footer .content .link-boxes .input-box {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+
+      
+  </style>
+</head>
+
+<body>
+
+  <header id="navbar">
+    <nav class="navbar-container container">
+      <a href="/" class="home-link">
+        <div class="navbar-logo"></div>
+        PORTFOLIO
+      </a>
+      <button type="button" id="navbar-toggle" aria-controls="navbar-menu" aria-label="Toggle menu" aria-expanded="false">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div id="navbar-menu" aria-labelledby="navbar-toggle">
+        <ul class="navbar-links">
+          <li class="navbar-item"><a class="navbar-link" href="http://127.0.0.1:5500/pot.html#">Home</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="http://127.0.0.1:5500/about.html">About</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="http://127.0.0.1:5500/skills.html">Skills</a></li>
+          <li class="navbar-item"><a class="navbar-link" href="http://127.0.0.1:5500/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+
+  <div class="main">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis esse nulla qui <br>
+      alias sed laudantium aliquid numquam maiores eius, eveniet aut excepturi dicta! Sint,<br>
+      facere provident deserunt exercitationem iure,</p>
+  </div>
+
+  <div class="skills">
+    <h1>My Skills</h1>
+    <li>
+      <h3>HTML5</h3><span class="bar"><span class="Html"></span></span>
+    </li>
+
+    <li>
+      <h3>CSS3</h3><span class="bar"><span class="Css"></span></span>
+    </li>
+
+    <li>
+      <h3>JAVASCRIPT</h3><span class="bar"><span class="JavaScript"></span></span>
+    </li>
+
+    <li>
+      <h3>JAVA</h3><span class="bar"><span class="Java"></span></span>
+    </li>
+  </div>
+  <!-- <img src="images/shivam 1.jpeg" alt=""> -->
+
+
+
+  <footer>
+    <div class="content">
+      <div class="top">
+        <div class="logo-details">
+          <!-- <i class="fab fa-slack"></i> -->
+          <span class="logo_name">Logo</span>
+        </div>
+        <div class="media-icons">
+          <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://x.com/home"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/brajesh0__yadav/"><i class="fab fa-instagram"></i></a>
+          <a href="https://web.telegram.org/a/"><i class="fab fa-telegram"></i></a>
+        </div>
+      </div>
+      <div class="link-boxes">
+        <ul class="box">
+          <li class="link_name">Pages</li>
+          <li><a href="http://127.0.0.1:5501/portfolio/portfolio.html#">Home</a></li>
+          <li><a href="http://127.0.0.1:5501/portfolio/skills.html">Skills us</a></li>
+          <li><a href="http://127.0.0.1:5501/portfolio/about1.html">About us</a></li>
+          <li><a href="http://127.0.0.1:5501/portfolio/project.html">Project</a></li>
+          <li><a href="">Contact</a></li>
+        </ul>
+        <ul class="box">
+          <li class="link_name">Services</li>
+          <li><a href="http://127.0.0.1:5501/portfolio/project.html">Web design</a></li>
+        </ul>
+        <ul class="box">
+          <li class="link_name">Account</li>
+          <li><a href="http://127.0.0.1:5501/portfolio/portfolio.html#">Profile</a></li>
+          <li><a href="http://127.0.0.1:5501/portfolio/skills.html">Prefrences</a></li>
+          <!-- <li><a href="#">My account</a></li> -->
+          <!-- <li><a href="#">Purchase</a></li> -->
+        </ul>
+        <ul class="box">
+          <li class="link_name">Skills</li>
+          <li><a href="http://127.0.0.1:5501/portfolio/skills.html">HTML & CSS</a></li>
+          <li><a href="http://127.0.0.1:5501/portfolio/skills.html">JavaScript</a></li>
+          <li><a href="http://127.0.0.1:5501/portfolio/skills.html">React</a></li>
+          <li><a href="http://127.0.0.1:5501/portfolio/skills.html">Bootstrep</a></li>
+        </ul>
+        <ul class="box input-box">
+          <li class="link_name">Social-us</li>
+          <li><input type="text" name="" placeholder="skhivam9958@gmail.com" id=""></li>
+          <!-- <li><input type="button" value="Subscribe"></li> -->
+        </ul>
+      </div>
+    </div>
+    <div class="bottom-details">
+      <div class="bottom_text">
+        <span class="copyright_text">Copyright © 2024 Shivam Kuamr~India</span>
+        <span class="policy_terms">
+        </span>
+      </div>
+    </div>
+  </footer>
+  <script src="head.js"></script>
+</body>
+
+</html>
